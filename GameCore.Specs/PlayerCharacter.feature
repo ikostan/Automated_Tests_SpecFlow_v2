@@ -28,9 +28,20 @@ Scenario Outline: Taking too much damage results in player death
 	| 100    | true   | 0              |
 
 
-	Scenario: Elf race characters get additional 20 damage resistance
+Scenario: Elf race characters get additional 20 damage resistance
 		Given I'm a new _player
 			And I have a damage resistance of 10
 			And I'm an Elf race
 		When I take 40 damage
 		Then My health now should be 90, and my status false, and my resistance 10
+
+
+Scenario: Elf race characters get additional 20 damage resistance using data table
+		Given I'm a new _player
+			And I have the following attributes
+			| attribute  | value |
+			| Race       | Elf   |
+			| Resistance | 10    |
+		When I take 40 damage
+		Then My health now should be 90, and my status false, and my resistance 10
+
