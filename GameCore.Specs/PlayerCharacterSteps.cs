@@ -21,13 +21,6 @@ namespace GameCore.Specs
         {
             _player.Hit(damage);
         }
-        
-        [Then(@"My helth must remain (.*)")]
-        public void ThenMyHelthMustRemain(int expectedHealth)
-        {
-            Assert.Equal(expectedHealth, _player.Health);
-            Assert.False(_player.IsDead);
-        }
 
         [Then(@"My health now should be (.*)")]
         public void ThenMyHealthNowShouldBe(int expectedHealth)

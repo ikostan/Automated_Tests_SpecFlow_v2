@@ -6,7 +6,7 @@
 Scenario: Taking no damage when hit doesn't affect health
 	Given I'm a new _player
 	When I take 0 damage
-	Then My helth must remain 100 
+	Then My health now should be 100 
 
 Scenario: Starting health is reduced when hit
 	Given I'm a new _player
