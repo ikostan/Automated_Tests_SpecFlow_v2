@@ -55,6 +55,8 @@ namespace GameCore.Specs
         [Then(@"I should be dead")]
         public void ThenIShouldBeDead()
         {
+            int expectedHealth = 0;
+            Assert.True(_player.Health <= expectedHealth);
             Assert.True(_player.IsDead);
         }
     }
