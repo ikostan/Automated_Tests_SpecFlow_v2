@@ -33,4 +33,4 @@ Scenario Outline: Taking too much damage results in player death
 			And I have a damage resistance of 10
 			And I'm an Elf race
 		When I take 40 damage
-		Then My health now should be 90, and my status false, and my resistance 30
+		Then My health now should be 90, and my status false, and my resistance 10

@@ -131,7 +131,7 @@ this.ScenarioSetup(scenarioInfo);
 #line 35
   testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 36
-  testRunner.Then("My health now should be 90, and my status false, and my resistance 30", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+  testRunner.Then("My health now should be 90, and my status false, and my resistance 10", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
