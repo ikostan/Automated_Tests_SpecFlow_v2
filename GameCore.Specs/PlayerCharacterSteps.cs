@@ -27,6 +27,7 @@ namespace GameCore.Specs
         {
             int expectedHealth = 100;
             Assert.Equal(expectedHealth, _player.Health);
+            Assert.False(_player.IsDead);
         }
 
         [When(@"I take 40 damage")]
@@ -41,6 +42,20 @@ namespace GameCore.Specs
         {
             int expectedHealth = 60;
             Assert.Equal(expectedHealth, _player.Health);
+            Assert.False(_player.IsDead);
+        }
+
+        [When(@"I take 100 damage")]
+        public void WhenITake100Damage()
+        {
+            int damage = 100;
+            _player.Hit(damage);
+        }
+
+        [Then(@"I should be dead")]
+        public void ThenIShouldBeDead()
+        {
+            Assert.True(_player.IsDead);
         }
     }
 }
