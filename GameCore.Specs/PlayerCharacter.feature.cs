@@ -72,12 +72,12 @@ namespace GameCore.Specs
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Taking no damage when hit doesn\'t affect health")]
+        [Xunit.FactAttribute(DisplayName="Taking no damage when hit doesn\'t affect health7")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
-        [Xunit.TraitAttribute("Description", "Taking no damage when hit doesn\'t affect health")]
-        public virtual void TakingNoDamageWhenHitDoesntAffectHealth()
+        [Xunit.TraitAttribute("Description", "Taking no damage when hit doesn\'t affect health7")]
+        public virtual void TakingNoDamageWhenHitDoesntAffectHealth7()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking no damage when hit doesn\'t affect health", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking no damage when hit doesn\'t affect health7", ((string[])(null)));
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
