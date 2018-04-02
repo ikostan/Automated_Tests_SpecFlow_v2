@@ -16,4 +16,4 @@ Scenario: Starting health is reduced when hit
 Scenario: Taking too much damage results in player death
 	Given I'm a new _player
 	When I take 100 damage
-	Then I should be dead
+	Then I should be dead, expected health 0 or less
