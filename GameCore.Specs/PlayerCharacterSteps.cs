@@ -24,7 +24,8 @@ namespace GameCore.Specs
         [Then(@"My helth must remain 100")]
         public void ThenMyHelthMustRemain()
         {
-            Assert.Equal(100, _player.Health);
+            int expectedHealth = 100;
+            Assert.Equal(expectedHealth, _player.Health);
         }
     }
 }
