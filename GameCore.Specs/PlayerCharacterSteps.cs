@@ -13,14 +13,23 @@ namespace GameCore.Specs
         public void GivenIMANewPlayer()
         {
             _player = new PlayerCharacter();
+            //_player.Race = "";
         }
-        
-        [When(@"I take 0 damage")]
-        public void WhenITake0Damage()
+
+        //Parameterized method/test
+        [When(@"I take (.*) damage")]
+        public void WhenITakeDamage(int damage)
         {
-            int damage = 0;
+            //int damage = 0;
             _player.Hit(damage);
         }
+
+        //[When(@"I take 0 damage")]
+        //public void WhenITake0Damage()
+        //{
+        //    int damage = 0;
+        //    _player.Hit(damage);
+        //}
         
         [Then(@"My helth must remain 100")]
         public void ThenMyHelthMustRemain()
@@ -30,12 +39,12 @@ namespace GameCore.Specs
             Assert.False(_player.IsDead);
         }
 
-        [When(@"I take 40 damage")]
-        public void WhenITake60Damage()
-        {
-            int damage = 40;
-            _player.Hit(damage);
-        }
+        //[When(@"I take 40 damage")]
+        //public void WhenITake60Damage()
+        //{
+        //    int damage = 40;
+        //    _player.Hit(damage);
+        //}
 
         [Then(@"My health now should be 60")]
         public void ThenMyHealthNowShouldBe()
@@ -45,12 +54,12 @@ namespace GameCore.Specs
             Assert.False(_player.IsDead);
         }
 
-        [When(@"I take 100 damage")]
-        public void WhenITake100Damage()
-        {
-            int damage = 100;
-            _player.Hit(damage);
-        }
+        //[When(@"I take 100 damage")]
+        //public void WhenITake100Damage()
+        //{
+        //    int damage = 100;
+        //    _player.Hit(damage);
+        //}
 
         [Then(@"I should be dead")]
         public void ThenIShouldBeDead()

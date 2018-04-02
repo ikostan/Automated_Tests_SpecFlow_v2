@@ -3,7 +3,7 @@
 	As a humat character
 	I want my character health to be correctly represented
 
-Scenario: Taking no damage when hit doesn't affect health7
+Scenario: Taking no damage when hit doesn't affect health
 	Given I'm a new _player
 	When I take 0 damage
 	Then My helth must remain 100 
