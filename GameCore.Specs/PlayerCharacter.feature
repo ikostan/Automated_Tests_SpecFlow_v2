@@ -3,9 +3,11 @@
 	As a humat character
 	I want my character health to be correctly represented
 
+Background: 
+	Given I'm a new _player
 
 Scenario Outline: Starting health is reduced when hit
-	Given I'm a new _player
+	#Given I'm a new _player
 	When I take <damage> damage
 	Then My health now should be <expectedHealth>, and my status <isDead>, and my resistance <expectedResistance>
 	
@@ -19,7 +21,7 @@ Scenario Outline: Starting health is reduced when hit
 
 
 Scenario Outline: Taking too much damage results in player death
-	Given I'm a new _player
+	#Given I'm a new _player
 	When I take <damage> damage
 	Then I should be <isDead> dead, expected health <expectedHealth> or less
 	
@@ -29,7 +31,7 @@ Scenario Outline: Taking too much damage results in player death
 
 
 Scenario: Elf race characters get additional 20 damage resistance
-		Given I'm a new _player
+		#Given I'm a new _player
 			And I have a damage resistance of 10
 			And I'm an Elf race
 		When I take 40 damage
@@ -37,7 +39,7 @@ Scenario: Elf race characters get additional 20 damage resistance
 
 
 Scenario: Elf race characters get additional 20 damage resistance using data table
-		Given I'm a new _player
+		#Given I'm a new _player
 			And I have the following attributes
 			| attribute  | value |
 			| Race       | Elf   |
