@@ -3,17 +3,26 @@
 	As a humat character
 	I want my character health to be correctly represented
 
-Scenario: Taking no damage when hit doesn't affect health
-	Given I'm a new _player
-	When I take 0 damage
-	Then My health now should be 100 
 
-Scenario: Starting health is reduced when hit
+Scenario Outline: Starting health is reduced when hit
 	Given I'm a new _player
-	When I take 40 damage
-	Then My health now should be 60
+	When I take <damage> damage
+	Then My health now should be <expectedHealth>, and my status <isDead>
+	
+	Examples:
+	| damage | expectedHealth | isDead |
+	| 0      | 100            | false  |
+	| 40     | 60             | false  |
+	| 5      | 95             | false  |
+	| 1      | 99             | false  |
+	| 99     | 1              | false  |
 
-Scenario: Taking too much damage results in player death
+
+Scenario Outline: Taking too much damage results in player death
 	Given I'm a new _player
-	When I take 100 damage
-	Then I should be dead, expected health 0 or less
+	When I take <damage> damage
+	Then I should be <isDead> dead, expected health <expectedHealth> or less
+	
+	Examples: 
+	| damage | isDead | expectedHealth |
+	| 100    | true   | 0              |

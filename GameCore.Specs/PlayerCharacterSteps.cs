@@ -10,30 +10,29 @@ namespace GameCore.Specs
         private PlayerCharacter _player;
 
         [Given(@"I'm a new _player")]
-        public void GivenIMANewPlayer()
+        public void GivenIMANew_Player()
         {
             _player = new PlayerCharacter();
         }
-
-        //Parameterized method/test
+        
         [When(@"I take (.*) damage")]
         public void WhenITakeDamage(int damage)
         {
             _player.Hit(damage);
         }
-
-        [Then(@"My health now should be (.*)")]
-        public void ThenMyHealthNowShouldBe(int expectedHealth)
+        
+        [Then(@"My health now should be (.*), and my status (.*)")]
+        public void ThenMyHealthNowShouldBeAndMyStatus(int expectedHealth, bool status)
         {
             Assert.Equal(expectedHealth, _player.Health);
-            Assert.False(_player.IsDead);
+            Assert.Equal(status, _player.IsDead);
         }
 
-        [Then(@"I should be dead, expected health (.*) or less")]
-        public void ThenIShouldBeDead(int expectedHealth)
+        [Then(@"I should be (.*) dead, expected health (.*) or less")]
+        public void ThenIShouldBeDeadExpectedHealthOrLess(bool status, int expectedHealth)
         {
-            Assert.True(_player.Health <= expectedHealth);
-            Assert.True(_player.IsDead);
+            Assert.True(expectedHealth >= _player.Health);
+            Assert.Equal(status, _player.IsDead);
         }
     }
 }

@@ -72,56 +72,44 @@ namespace GameCore.Specs
             this.ScenarioTearDown();
         }
         
-        [Xunit.FactAttribute(DisplayName="Taking no damage when hit doesn\'t affect health")]
-        [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
-        [Xunit.TraitAttribute("Description", "Taking no damage when hit doesn\'t affect health")]
-        public virtual void TakingNoDamageWhenHitDoesntAffectHealth()
-        {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking no damage when hit doesn\'t affect health", ((string[])(null)));
-#line 6
-this.ScenarioSetup(scenarioInfo);
-#line 7
- testRunner.Given("I\'m a new _player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 8
- testRunner.When("I take 0 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 9
- testRunner.Then("My health now should be 100", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            this.ScenarioCleanup();
-        }
-        
-        [Xunit.FactAttribute(DisplayName="Starting health is reduced when hit")]
+        [Xunit.TheoryAttribute(DisplayName="Starting health is reduced when hit")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
         [Xunit.TraitAttribute("Description", "Starting health is reduced when hit")]
-        public virtual void StartingHealthIsReducedWhenHit()
+        [Xunit.InlineDataAttribute("0", "100", "false", new string[0])]
+        [Xunit.InlineDataAttribute("40", "60", "false", new string[0])]
+        [Xunit.InlineDataAttribute("5", "95", "false", new string[0])]
+        [Xunit.InlineDataAttribute("1", "99", "false", new string[0])]
+        [Xunit.InlineDataAttribute("99", "1", "false", new string[0])]
+        public virtual void StartingHealthIsReducedWhenHit(string damage, string expectedHealth, string isDead, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit", ((string[])(null)));
-#line 11
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Starting health is reduced when hit", exampleTags);
+#line 7
 this.ScenarioSetup(scenarioInfo);
-#line 12
+#line 8
  testRunner.Given("I\'m a new _player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 13
- testRunner.When("I take 40 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 14
- testRunner.Then("My health now should be 60", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 9
+ testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
+ testRunner.Then(string.Format("My health now should be {0}, and my status {1}", expectedHealth, isDead), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
         
-        [Xunit.FactAttribute(DisplayName="Taking too much damage results in player death")]
+        [Xunit.TheoryAttribute(DisplayName="Taking too much damage results in player death")]
         [Xunit.TraitAttribute("FeatureTitle", "PlayerCharacter")]
         [Xunit.TraitAttribute("Description", "Taking too much damage results in player death")]
-        public virtual void TakingTooMuchDamageResultsInPlayerDeath()
+        [Xunit.InlineDataAttribute("100", "true", "0", new string[0])]
+        public virtual void TakingTooMuchDamageResultsInPlayerDeath(string damage, string isDead, string expectedHealth, string[] exampleTags)
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking too much damage results in player death", ((string[])(null)));
-#line 16
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Taking too much damage results in player death", exampleTags);
+#line 21
 this.ScenarioSetup(scenarioInfo);
-#line 17
+#line 22
  testRunner.Given("I\'m a new _player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 18
- testRunner.When("I take 100 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 19
- testRunner.Then("I should be dead, expected health 0 or less", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 23
+ testRunner.When(string.Format("I take {0} damage", damage), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 24
+ testRunner.Then(string.Format("I should be {0} dead, expected health {1} or less", isDead, expectedHealth), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
