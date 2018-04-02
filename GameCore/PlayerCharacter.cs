@@ -15,7 +15,17 @@ namespace GameCore
 
         public void Hit(int damage) {
 
-            Health -= damage;
+            var raceSpecificDamageResistance = 0;
+
+            if (Race.Equals("Elf")) {
+
+                raceSpecificDamageResistance = 20;
+            }
+
+            var totalDamageTaken = 
+                Math.Max(damage - raceSpecificDamageResistance - DamageResistance, 0);
+
+            Health -= totalDamageTaken;
 
             if (Health <= 0)
             {
