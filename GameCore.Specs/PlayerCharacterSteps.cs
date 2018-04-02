@@ -20,12 +20,25 @@ namespace GameCore.Specs
         {
             _player.Hit(damage);
         }
-        
-        [Then(@"My health now should be (.*), and my status (.*)")]
-        public void ThenMyHealthNowShouldBeAndMyStatus(int expectedHealth, bool status)
+
+        [Given(@"I have a damage resistance of (.*)")]
+        public void GivenIHaveADamageResistanceOf(int resistance)
+        {
+            _player.DamageResistance = resistance;
+        }
+
+        [Given(@"I'm an (.*) race")]
+        public void GivenIMAnElf(string character)
+        {
+            _player.Race = character;
+        }
+
+        [Then(@"My health now should be (.*), and my status (.*), and my resistance (.*)")]
+        public void ThenMyHealthNowShouldBeAndMyStatus(int expectedHealth, bool status, int expectedResistance)
         {
             Assert.Equal(expectedHealth, _player.Health);
             Assert.Equal(status, _player.IsDead);
+            Assert.Equal(expectedResistance, _player.DamageResistance);
         }
 
         [Then(@"I should be (.*) dead, expected health (.*) or less")]
