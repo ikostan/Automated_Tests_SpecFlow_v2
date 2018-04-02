@@ -1,11 +1,9 @@
 ﻿Feature: PlayerCharacter
-	In order to avoid silly mistakes
-	As a math idiot
-	I want to be told the sum of two numbers
+	In order to play the game
+	As a humat character
+	I want my character health to be correctly represented
 
-@mytag
-Scenario: Add two numbers
-	Given I have entered 50 into the calculator
-	And I have entered 70 into the calculator
-	When I press add
-	Then the result should be 120 on the screen
+Scenario: Taking no damage when hit doesn't affect health
+	Given I'm a new player
+	When I take 0 damage
+	Then My helth must remain 100 
