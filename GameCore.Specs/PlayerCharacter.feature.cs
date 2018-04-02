@@ -81,7 +81,7 @@ namespace GameCore.Specs
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
- testRunner.Given("I\'m a new player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I\'m a new _player", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
  testRunner.When("I take 0 damage", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 9

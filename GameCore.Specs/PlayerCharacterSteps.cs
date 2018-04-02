@@ -1,29 +1,30 @@
 ﻿using System;
 using TechTalk.SpecFlow;
+using Xunit;
 
 namespace GameCore.Specs
 {
     [Binding]
     public class PlayerCharacterSteps
     {
-        PlayerCharacter player;
+        private PlayerCharacter _player;
 
-        [Given(@"I'm a new player")]
+        [Given(@"I'm a new _player")]
         public void GivenIMANewPlayer()
         {
-            player = new PlayerCharacter();
+            _player = new PlayerCharacter();
         }
         
         [When(@"I take 0 damage")]
         public void WhenITakeDamage()
         {
-            player.Hit(0);
+            _player.Hit(0);
         }
         
         [Then(@"My helth must remain 100")]
         public void ThenMyHelthMustRemain()
         {
-            //player.Health;
+            Assert.Equal(100, _player.Health);
         }
     }
 }
