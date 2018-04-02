@@ -16,15 +16,30 @@ namespace GameCore.Specs
         }
         
         [When(@"I take 0 damage")]
-        public void WhenITakeDamage()
+        public void WhenITake0Damage()
         {
-            _player.Hit(0);
+            int damage = 0;
+            _player.Hit(damage);
         }
         
         [Then(@"My helth must remain 100")]
         public void ThenMyHelthMustRemain()
         {
             int expectedHealth = 100;
+            Assert.Equal(expectedHealth, _player.Health);
+        }
+
+        [When(@"I take 40 damage")]
+        public void WhenITake60Damage()
+        {
+            int damage = 40;
+            _player.Hit(damage);
+        }
+
+        [Then(@"My health now should be 60")]
+        public void ThenMyHealthNowShouldBe()
+        {
+            int expectedHealth = 60;
             Assert.Equal(expectedHealth, _player.Health);
         }
     }
