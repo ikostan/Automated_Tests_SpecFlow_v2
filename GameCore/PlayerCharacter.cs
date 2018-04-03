@@ -45,5 +45,42 @@ namespace GameCore
                 IsDead = true;
             }
         }
+
+        public void CastHealingSpell() {
+
+            if (CharacterClass == CharacterClass.Healer)
+            {
+                Health = 100;
+            }
+            else
+            {
+                Health += 10;
+            }
+        }
+
+        public void ReadHealthScroll() {
+
+            var daysSinceLastSleep = DateTime.Now.Subtract(LastSleepTime).Days;
+
+            if (daysSinceLastSleep <= 2)
+            {
+                Health = 100;
+            }
+        }
+
+        public void UseMagicalItem(string itemName) {
+
+            int powerReduction = 10;
+
+            if (Race.Equals("Elf"))
+            {
+                powerReduction = 0;
+            }
+
+            var itemToReduce = MagicalItems.First(item => item.Name == itemName);
+
+            itemToReduce.Power -= powerReduction;
+        }
+
     }
 }
