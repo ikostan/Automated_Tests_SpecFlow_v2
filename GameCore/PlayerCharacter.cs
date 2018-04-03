@@ -19,10 +19,12 @@ namespace GameCore
         public DateTime LastSleepTime { get; set; }
 
         public int MagicalPower {
+
             get { return MagicalItems.Sum(x => x.Power); }
         }
 
         public int WeaponsValue {
+
             get { return Weapons.Sum(x => x.Value); }
         }
 

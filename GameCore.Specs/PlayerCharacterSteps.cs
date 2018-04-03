@@ -59,5 +59,18 @@ namespace GameCore.Specs
             Assert.True(expectedHealth >= _player.Health);
             Assert.Equal(status, _player.IsDead);
         }
+
+        [Given(@"My character class is set to (.*)")]
+        public void GivenMyCharacterClassIsSetToHealer(CharacterClass character)
+        {
+            _player.CharacterClass = character;
+        }
+
+        [When(@"Cast a healing spell")]
+        public void WhenCastAHealingSpell()
+        {
+            _player.CastHealingSpell();
+        }
+
     }
 }

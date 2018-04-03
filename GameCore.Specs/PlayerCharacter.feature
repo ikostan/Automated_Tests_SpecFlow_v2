@@ -48,3 +48,8 @@ Scenario: Elf race characters get additional 20 damage resistance using data tab
 		Then My health now should be 90, and my status false, and my resistance 10
 
 
+Scenario: Healers restore all health
+	Given My character class is set to Healer
+	When I take 40 damage
+		And Cast a healing spell
+	Then My health now should be 100, and my status false, and my resistance 0
