@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GameCore
 {
-    public enum CharacterType
+    public enum CharacterClass
     {
         None, Healer, Warrior
     }

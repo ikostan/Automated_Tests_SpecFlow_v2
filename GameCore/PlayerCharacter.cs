@@ -13,6 +13,19 @@ namespace GameCore
         public int DamageResistance { get; set; } = 0;
         public string Race { get; set; } = "";
 
+        public List<MagicalItem> MagicalItems { get; set; } = new List<MagicalItem>();
+        public List<Weapon> Weapons { get; set; } = new List<Weapon>();
+        public CharacterClass CharacterClass { get; set; }
+        public DateTime LastSleepTime { get; set; }
+
+        public int MagicalPower {
+            get { return MagicalItems.Sum(x => x.Power); }
+        }
+
+        public int WeaponsValue {
+            get { return Weapons.Sum(x => x.Value); }
+        }
+
         public void Hit(int damage) {
 
             var raceSpecificDamageResistance = 0;
