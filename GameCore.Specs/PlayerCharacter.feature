@@ -47,3 +47,4 @@ Scenario: Elf race characters get additional 20 damage resistance using data tab
 		When I take 40 damage
 		Then My health now should be 90, and my status false, and my resistance 10
 
+
