@@ -2,6 +2,7 @@
 using System.Linq;
 using TechTalk.SpecFlow;
 using Xunit;
+using TechTalk.SpecFlow.Assist;
 
 namespace GameCore.Specs
 {
@@ -38,14 +39,16 @@ namespace GameCore.Specs
         public void GivenIHaveTheFollowingAttributes(Table table)
         {
             //LINQ:
-            var race = table.Rows.First(
-                TableRow => TableRow["attribute"] == "Race")["value"];
+            //var race = table.Rows.First(
+            //    TableRow => TableRow["attribute"] == "Race")["value"];
 
-            var resistance = int.Parse(table.Rows.First(
-                TableRow => TableRow["attribute"] == "Resistance")["value"]);
+            //var resistance = int.Parse(table.Rows.First(
+            //    TableRow => TableRow["attribute"] == "Resistance")["value"]);
 
-            _player.Race = race;
-            _player.DamageResistance = resistance;
+            var attributes = table.CreateInstance<PlayerAttributes>();
+
+            _player.Race = attributes.Race;
+            _player.DamageResistance = attributes.Resistance;
         }
 
         [Then(@"My health now should be (.*), and my status (.*), and my resistance (.*)")]
