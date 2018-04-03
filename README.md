@@ -9,5 +9,6 @@ There's nothing more frustrating to a developer than building an application onl
 3. NuGet package<br/>
 4. SpecFlow.xUnit NuGet package<br/>
 5. xunit.runner.visualstudio NiGet package<br/>
+6. SpecFlow.Assist.Dynamic package<br/>
 
 ### Source: https://app.pluralsight.com/player?course=specflow-2-0-business-readable-automated-tests&author=jason-roberts
