@@ -38,8 +38,11 @@ namespace GameCore.Specs
         public void GivenIHaveTheFollowingAttributes(Table table)
         {
             //LINQ:
-            var race = table.Rows.First(TableRow => TableRow["attribute"] == "Race")["value"];
-            var resistance = int.Parse(table.Rows.First(TableRow => TableRow["attribute"] == "Resistance")["value"]);
+            var race = table.Rows.First(
+                TableRow => TableRow["attribute"] == "Race")["value"];
+
+            var resistance = int.Parse(table.Rows.First(
+                TableRow => TableRow["attribute"] == "Resistance")["value"]);
 
             _player.Race = race;
             _player.DamageResistance = resistance;
